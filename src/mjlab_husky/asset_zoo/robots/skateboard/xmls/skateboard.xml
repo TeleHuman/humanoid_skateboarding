@@ -1,0 +1,65 @@
+<mujoco model="skateboard">
+  <compiler angle="radian" autolimits="true"/>
+
+  
+  <default>
+    <default class="wheel_geom">
+      <geom size="0.03 0.02" quat="0.707388 0.706825 0 0"  type="cylinder"/>
+    </default>
+  </default>
+
+  <worldbody>
+    <body name="skateboard_deck" pos="0.0 0.0 0.10">
+      <inertial pos="0 0 0" quat="1 0 0 0" mass="1.5" diaginertia="0.005 0.08 0.085"/>
+      <freejoint name="floating_base_joint_skateboard"/>
+      
+      <body name="board_tilt_body" pos="0 0 0">
+        <joint name="board_tilt_joint" pos="0 0 0" axis="-1 0 0" range="-0.2 0.2"/>
+        <geom name="skateboard_deck_collision" size="0.4 0.1 0.01" type="box"/>
+        <geom name="skateboard_marker_collision" size="0.15 0.075 0.005" pos="-0.2 0 0.005" type="box" />
+        <site name="rear_marker" pos="-0.2 -0.03 0.0" size="0.025" />
+        <site name="front_marker" pos="0.2 -0.03 0.0" size="0.025" />
+      </body>
+      <body name="front_truck" pos="0.2 0 0.02">
+        <inertial pos="0 0 -0.09" quat="0.707388 0 0 0.706825" mass="0.5" diaginertia="0.00043 3.3e-05 0.00043"/>
+        <joint name="front_truck_roll_joint" pos="0 0 0" axis="0 0 -1" range="-0.10 0.10" actuatorfrcrange="-20 20" />
+        <geom name="front_truck_collision" size="0.05 0.01 0.01" pos="0 0 -0.09" quat="0.707388 0 0 0.706825" type="box"/>
+        <body name="front_left_wheel" pos="0 0 -0.09">
+          <inertial pos="0 0.07 0" mass="0.2" diaginertia="1e-05 1e-05 1e-05"/>
+          <joint name="front_left_wheel_joint" pos="0 0 0" axis="0 1 0" actuatorfrcrange="-5 5" />
+          <geom class="wheel_geom" name="front_left_wheel_collision"  pos="0 0.07 0"/>
+        </body>
+        <body name="front_right_wheel" pos="0 0 -0.09">
+          <inertial pos="0 -0.07 0" mass="0.2" diaginertia="1e-05 1e-05 1e-05"/>
+          <joint name="front_right_wheel_joint" pos="0 0 0" axis="0 1 0" actuatorfrcrange="-5 5"/>
+          <geom class="wheel_geom" name="front_right_wheel_collision"  pos="0 -0.07 0"/>
+        </body>
+      </body>
+      <body name="rear_truck" pos="-0.2 0 0.02">
+        <inertial pos="0 0 -0.09" quat="0.707388 0 0 0.706825" mass="0.5" diaginertia="0.00043 3.3e-05 0.00043"/>
+        <joint name="rear_truck_roll_joint" pos="0 0 0" axis="0 0 1" range="-0.10 0.10" actuatorfrcrange="-20 20"/>
+        <geom name="rear_truck_collision" size="0.05 0.01 0.01" pos="0 0 -0.09" quat="0.707388 0 0 0.706825" type="box"/>
+        <body name="rear_left_wheel" pos="0 0 -0.09">
+          <inertial pos="0 0.07 0" mass="0.2" diaginertia="1e-05 1e-05 1e-05"/>
+          <joint name="rear_left_wheel_joint" pos="0 0 0" axis="0 1 0" actuatorfrcrange="-5 5"/>
+          <geom class="wheel_geom" name="rear_left_wheel_collision" pos="0 0.07 0" />
+        </body>
+        <body name="rear_right_wheel" pos="0 0 -0.09">
+          <inertial pos="0 -0.07 0" mass="0.2" diaginertia="1e-05 1e-05 1e-05"/>
+          <joint name="rear_right_wheel_joint" pos="0 0 0" axis="0 1 0" actuatorfrcrange="-5 5"/>
+          <geom class="wheel_geom" name="rear_right_wheel_collision" pos="0 -0.07 0"/>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <equality>
+    <joint joint1="board_tilt_joint"
+          joint2="front_truck_roll_joint"
+          polycoef="0 -0.577 0 0 0"/>
+    <joint joint1="board_tilt_joint"
+          joint2="rear_truck_roll_joint"
+          polycoef="0 -0.577 0 0 0"/>
+  </equality>
+
+</mujoco>

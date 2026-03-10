@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rsl-rl-lib"
+version = "3.1.0"
+description = "Fast and simple reinforcement learning algorithms (custom build)"
+license = { text = "BSD-3-Clause" }
+requires-python = ">=3.9"
+dependencies = [
+    "gitpython",
+    "numpy",
+    "onnx",
+    "tensordict",
+    "torch",
+    "torchvision",
+]
+
+# 包在上一级目录（项目根下的 rsl_rl/），构建时从本目录运行故 where = ".."
+[tool.setuptools.packages.find]
+where = [".."]
+include = ["rsl_rl*"]

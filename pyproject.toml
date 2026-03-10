@@ -1,0 +1,33 @@
+[build-system]
+requires = ["uv_build>=0.8.19,<0.9.0"]
+build-backend = "uv_build"
+
+[project]
+name = "mjlab_husky"
+version = "0.1.0"
+license = "Apache-2.0"
+description = "Humanoid Skateboarding System via Physics-Aware Whole-Body Control"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "mjlab",
+    "onnxruntime",
+    "pybullet",
+    "rsl-rl-lib",
+    "pynput"
+]
+
+[project.entry-points."mjlab.tasks"]
+mjlab_husky = "mjlab_husky.tasks"
+
+[project.scripts]
+train = "mjlab_husky.scripts.train:main"
+play = "mjlab_husky.scripts.play:main"
+
+[tool.ruff]
+src = ["src"]  # Helpful for recognizing first-party imports.
+indent-width = 4
+
+[tool.uv.sources]
+mjlab = { git = "https://github.com/mujocolab/mjlab.git", rev = "13212ad" }
+rsl-rl-lib = { path = "rsl_rl" }
