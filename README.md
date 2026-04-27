@@ -1,5 +1,6 @@
 <p align="center">
 <h1 align="center"><strong>HUSKY: Humanoid Skateboarding System via Physics-Aware Whole-Body Control</strong></h1>
+  <p align="center"><strong><em>Robotics: Science and Systems (RSS) 2026</em></strong></p>
   <p align="center">
     <a href="https://bwrooney82.github.io/" target="_blank">Jinrui Han</a><sup>* 1,2</sup>,
     <a href="https://scholar.google.com/citations?user=iDv038AAAAAJ&hl=zh-CN" target="_blank">Dewei Wang</a><sup>* 1,3</sup>,
