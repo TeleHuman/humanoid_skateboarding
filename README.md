@@ -6,17 +6,17 @@
     <a href="https://scholar.google.com/citations?user=iDv038AAAAAJ&hl=zh-CN" target="_blank">Dewei Wang</a><sup>* 1,3</sup>,
     <a href="https://github.com/chenyunzhanggit" target="_blank">Chenyun Zhang</a><sup>1</sup>,
     <a href="https://xinzheliu.github.io/" target="_blank">Xinzhe Liu</a><sup>1,4</sup>,
-    <a href="http://luoping.me/" target="_blank">Ping Luo</a><sup>5</sup>,
+    <a href="http://luoping.me/" target="_blank">Ping Luo</a><sup>2</sup>,
     <a href="https://baichenjia.github.io/" target="_blank">Chenjia Bai</a><sup>&dagger;1</sup>,
     <a href="https://scholar.google.com.hk/citations?user=ahUibskAAAAJ" target="_blank">Xuelong Li</a><sup>&dagger;1</sup>
     <br>
     * Equal Contribution  &dagger; Corresponding Author
     <br>
     <sup>1</sup>Institute of Artificial Intelligence (TeleAI), China Telecom  
-    <sup>2</sup>Shanghai Jiao Tong University  
+    <sup>2</sup>The University of Hong Kong 
+    <br>
     <sup>3</sup>University of Science and Technology of China  
     <sup>4</sup>ShanghaiTech University  
-    <sup>5</sup>The University of Hong Kong
   </p>
 </p>
 
@@ -86,11 +86,36 @@ bash test_scene/sim.sh your-onnx-path
 
 The [`test_scene/mjlab_scene.xml`](test_scene/mjlab_scene.xml) file is automatically generated from the mjlab [`scene_cfg`](src/mjlab_husky/asset_zoo/robots/skateboard/g1_skater_constants.py). In the simulation, you can control the skateboard using the keyboard arrow keys. Visualization examples are shown below, rendered from [`test.pt`](ckpts/test.pt) and [`test.onnx`](ckpts/test.onnx):
 
-| <div align="center">  Viser </div>                                                                                                                                           | <div align="center"> MuJoCo </div>                                                                                                                                               |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <div style="width:250px; height:150px; overflow:hidden;"><img src="media/viser.gif" style="width:100%; height:100%; object-fit:cover; object-position:center;"></div> | <div style="width:250px; height:150px; overflow:hidden;"><img src="media/mjc.gif" style="width:100%; height:100%; object-fit:cover; object-position:center;"></div> |
-
-</div>
+<table style="width: 100%; table-layout: fixed; border-collapse: collapse;">
+  <tr style="border-bottom: 1px solid #dfe2e5;">
+    <td align="center" style="padding: 10px;"><b>Viser</b></td>
+    <td align="center" style="padding: 10px;"><b>MuJoCo</b></td>
+  </tr>
+  <tr>
+    <td style="padding: 10px 0;">
+      <div style="width:100%; height:150px; overflow:hidden;">
+        <img src="media/viser.gif" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+    </td>
+    <td style="padding: 10px 0;">
+      <div style="width:100%; height:150px; overflow:hidden;">
+        <img src="media/mjc.gif" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+    </td>
+  </tr>
+  <tr style="border-bottom: 1px solid #dfe2e5;">
+    <td colspan="2" align="center" style="padding: 10px;">
+      <b>Zero-shot Evaluations on More Terrains</b>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 10px 0;">
+      <div style="width:100%; height:250px; overflow:hidden;">
+        <img src="media/terrain.gif" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+    </td>
+  </tr>
+</table>
 
 ## Citation
 
